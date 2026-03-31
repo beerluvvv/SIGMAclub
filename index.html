@@ -92,6 +92,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
         @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -333,7 +340,7 @@
 <video class="absolute inset-0 w-full h-full object-cover opacity-40" autoplay muted loop playsinline>
 <source src="video/4K Blue.mp4" type="video/mp4"/>
 </video>
-<div class="relative z-10 p-6 bg-gradient-to-r from-surface-container-low/90 to-surface-container-low/40 backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="relative z-10 p-6 bg-gradient-to-r from-surface-container-low/90 to-surface-container-low/40 backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
 <div>
 <h4 class="font-headline text-lg sm:text-xl font-bold mb-1 text-secondary-container">НОЧНЫЕ ПАКЕТЫ</h4>
 <p class="text-on-surface-variant text-xs sm:text-sm">Играй с 22:00 до 08:00 по фиксированной цене</p>
@@ -404,8 +411,8 @@
 <!-- Social Proof -->
 <section class="py-24 bg-surface-container-lowest overflow-hidden">
 <div class="container mx-auto px-6">
-<div class="flex gap-8 animate-marquee">
-<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-primary">
+<div class="flex md:gap-8 gap-4 overflow-x-auto md:overflow-visible snap-x snap-mandatory pb-4 md:pb-0 scrollbar-hide">
+<div class="min-w-[300px] md:min-w-0 p-6 bg-surface-container-low border-l-2 border-primary snap-start">
 <p class="italic text-on-surface-variant mb-4 font-light">"Лучший клуб в городе. Пинг в CS2 стабильно 5мс. Админы шарят."</p>
 <div class="flex items-center gap-3">
 <img class="w-10 h-10 rounded-full object-cover" src="https://images.cybersport.ru/images/as-is/plain/3f/3fe8334f-28db-432a-a871-050453bb91f5.png" alt="s1mple avatar"/>
@@ -415,7 +422,7 @@
 </div>
 </div>
 </div>
-<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-secondary-container">
+<div class="min-w-[300px] md:min-w-0 p-6 bg-surface-container-low border-l-2 border-secondary-container snap-start">
 <p class="italic text-on-surface-variant mb-4 font-light">"VIP комнаты — это просто космос. Идеально для буткемпа с командой."</p>
 <div class="flex items-center gap-3">
 <img class="w-10 h-10 rounded-full object-cover" src="https://escorenews.com/media/news/pic-20220121-1080x1080-4417268261.jpeg" alt="cyber_kotleta avatar"/>
@@ -425,7 +432,7 @@
 </div>
 </div>
 </div>
-<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-primary">
+<div class="min-w-[300px] md:min-w-0 p-6 bg-surface-container-low border-l-2 border-primary snap-start">
 <p class="italic text-on-surface-variant mb-4 font-light">"Периферия всегда чистая, железо не греется. Респект за RTX 4090!"</p>
 <div class="flex items-center gap-3">
 <img class="w-10 h-10 rounded-full object-cover" src="https://d1pzotwf6uuj6w.cloudfront.net/publications/upload/publication-5284/russed/zeus_norm.png" alt="zeus avatar"/>
