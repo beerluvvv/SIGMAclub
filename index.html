@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>СИГМА | Компьютерный клуб нового поколения</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Russo+One&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#9a8ca2",
+              "on-primary-container": "#f7e5ff",
+              "secondary": "#dcfdff",
+              "inverse-primary": "#8c00e5",
+              "outline-variant": "#4e4356",
+              "on-error": "#690005",
+              "primary-container": "#9d00ff",
+              "on-tertiary-fixed-variant": "#91002d",
+              "on-secondary-fixed": "#002022",
+              "on-primary": "#4b007e",
+              "tertiary": "#ffb2b8",
+              "on-tertiary-fixed": "#40000f",
+              "secondary-fixed": "#6ff6ff",
+              "surface-variant": "#353534",
+              "primary-fixed-dim": "#dfb7ff",
+              "on-tertiary-container": "#ffe6e6",
+              "on-tertiary": "#67001d",
+              "on-background": "#e5e2e1",
+              "on-primary-fixed": "#2d004f",
+              "surface-container-lowest": "#0e0e0e",
+              "surface": "#131313",
+              "surface-dim": "#131313",
+              "on-primary-fixed-variant": "#6b00b0",
+              "on-secondary-container": "#006a6f",
+              "secondary-container": "#00f1fd",
+              "on-secondary": "#00373a",
+              "error-container": "#93000a",
+              "surface-bright": "#3a3939",
+              "tertiary-fixed": "#ffdadb",
+              "background": "#131313",
+              "tertiary-container": "#d40045",
+              "surface-container-low": "#1c1b1b",
+              "on-secondary-fixed-variant": "#004f53",
+              "inverse-surface": "#e5e2e1",
+              "surface-container-highest": "#353534",
+              "inverse-on-surface": "#313030",
+              "primary-fixed": "#f1daff",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed-dim": "#ffb2b8",
+              "error": "#ffb4ab",
+              "on-surface": "#e5e2e1",
+              "surface-tint": "#dfb7ff",
+              "surface-container-high": "#2a2a2a",
+              "surface-container": "#201f1f",
+              "secondary-fixed-dim": "#00dce6",
+              "on-surface-variant": "#d1c1d9",
+              "primary": "#dfb7ff"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-blur {
+            backdrop-filter: blur(20px);
+        }
+        .status-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(0, 241, 253, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 241, 253, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 241, 253, 0); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #dfb7ff 0%, #9d00ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .gradient-animate {
+            background: linear-gradient(90deg, #9d00ff, #dfb7ff, #f7e5ff, #dfb7ff, #9d00ff);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+        }
+        @keyframes bounce-down {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(8px); }
+            60% { transform: translateY(4px); }
+        }
+        .scroll-arrow {
+            display: inline-block;
+            animation: bounce-down 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl shadow-[0_0_20px_rgba(157,0,255,0.15)] font-['Space_Grotesk'] tracking-tight">
+<div class="flex justify-between items-center px-4 md:px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-black text-[#9D00FF] tracking-wider" style="font-family: 'Russo One', sans-serif;">СИГМА</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#dfb7ff] border-b-2 border-[#9D00FF] pb-1 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#">Главная</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#tariffs">Тарифы</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#games">Игры</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#tournaments">Турниры</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#gallery">Галерея</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] hover:drop-shadow-[0_0_8px_#9D00FF] transition-all" href="#contacts">Контакты</a>
+</div>
+<div class="flex items-center gap-4">
+<!-- <button class="hidden md:block bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-6 py-2 rounded-lg hover:shadow-[0_0_15px_rgba(157,0,255,0.5)] transition-all scale-100 active:scale-95">Вход</button> -->
+<button id="mobile-menu-btn" class="md:hidden text-[#9D00FF]">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+</div>
+<div class="bg-gradient-to-r from-transparent via-[#4e4356]/20 to-transparent h-[1px] w-full absolute bottom-0"></div>
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-[#131313]/95 backdrop-blur-xl border-t border-[#4e4356]/20">
+<div class="flex flex-col px-4 py-6 gap-4">
+<a class="text-[#dfb7ff] hover:text-[#9D00FF] transition-colors py-2" href="#">Главная</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] transition-colors py-2" href="#tariffs">Тарифы</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] transition-colors py-2" href="#games">Игры</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] transition-colors py-2" href="#tournaments">Турниры</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] transition-colors py-2" href="#gallery">Галерея</a>
+<a class="text-[#e5e2e1]/70 hover:text-[#9D00FF] transition-colors py-2" href="#contacts">Контакты</a>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold px-6 py-3 rounded-lg mt-4">Вход</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background"></div>
+<img class="w-full h-full object-cover opacity-40" data-alt="high-tech gaming arena with purple and blue neon lights, professional gaming setups, dark cinematic atmosphere with light streaks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7GFVajNyRjYmpkEWDI-Cav2c_SIGSAzVwJqgGfBWf6NovOX327DBNA46NLGy4pQctBCsoimg4EcvLAMK2t875Jsh55inlh0Gd7IQxg7BCzRrq3EILh1NONl_Z_Wo1am86g9dXHNeTmC3I8keakYXVIUmxW1Ogy2UcH5QpCSIodcL8B-Xhb7GHS58rPHq_9ckw-BORG9KhIRL8YKd_WZU-4m7FWGhDbA92CspzKjzXWKOlNhu0AZNvis3kKvTPjJyDiVf0uiykeURl"/>
+</div>
+<div class="container mx-auto px-6 z-10 grid md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-8">
+<div class="inline-flex items-center gap-3 bg-surface-container-low/50 border border-outline-variant/30 rounded-full px-4 py-2 mb-8">
+<span class="w-3 h-3 bg-secondary-container rounded-full status-pulse"></span>
+<span class="font-label text-xs uppercase tracking-[0.2em] text-secondary-fixed">Online &amp; Ready to Play</span>
+</div>
+<h1 class="font-headline text-4xl sm:text-5xl md:text-8xl font-bold leading-[0.9] mb-8 tracking-tighter">
+                    ТВОЙ СЛЕДУЮЩИЙ <br/>
+<span class="gradient-text">УРОВЕНЬ ИГРЫ</span> <br/>
+                    В SIGMA
+                </h1>
+<p class="text-on-surface-variant text-base sm:text-xl max-w-xl mb-10 font-light leading-relaxed">
+                    Иммерсивное пространство, где железо топового уровня встречается с атмосферой абсолютной победы. Твой скилл заслуживает лучшего.
+                </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:shadow-[0_0_30px_rgba(157,0,255,0.4)] transition-all" href="#tariffs">Забронировать</a>
+<a class="bg-surface-variant/20 backdrop-blur-md border border-outline-variant/50 text-on-surface px-6 sm:px-10 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-surface-variant/40 transition-all" href="#hardware">Характеристики</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hardware Section -->
+<section class="py-16 md:py-24 bg-surface-container-lowest relative overflow-hidden" id="hardware">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16 gap-8">
+<div>
+<h2 class="font-headline text-3xl sm:text-4xl md:text-6xl font-bold uppercase mb-4 tracking-tighter">Ultimate Hardware</h2>
+<p class="text-on-surface-variant max-w-md text-sm sm:text-base">Мы не идем на компромиссы. Только флагманские решения для безупречного FPS.</p>
+</div>
+<div class="text-right hidden md:block">
+<span class="text-primary-container font-headline text-8xl font-black opacity-10 leading-none select-none">PERFORMANCE</span>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-1">
+<div class="bg-surface-container-low p-6 sm:p-10 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary-container text-3xl sm:text-4xl mb-4 sm:mb-6">memory</span>
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-4">RTX 4090</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Ультимативная мощность для 4K гейминга и трассировки лучей в реальном времени.</p>
+</div>
+<div class="bg-surface-container-low p-6 sm:p-10 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary-container text-3xl sm:text-4xl mb-4 sm:mb-6">speed</span>
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-4">500 Mb/s</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Выделенная линия с минимальным пингом. Никаких лагов, только чистый коннект.</p>
+</div>
+<div class="bg-surface-container-low p-6 sm:p-10 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary-container text-3xl sm:text-4xl mb-4 sm:mb-6">diamond</span>
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-4">VIP</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Изолированные буткемпы с премиальными креслами Herman Miller и шумоподавлением.</p>
+</div>
+<div class="bg-surface-container-low p-6 sm:p-10 hover:bg-surface-container-high transition-colors group">
+<span class="material-symbols-outlined text-secondary-container text-3xl sm:text-4xl mb-4 sm:mb-6">mouse</span>
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-4">Pro Gear</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">Периферия от Logitech G Pro и Razer. Девайсы, на которых выигрывают мажоры.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Popular Games Bento Grid -->
+<section class="py-24 bg-surface relative" id="games">
+<div class="container mx-auto px-6">
+<h2 class="font-headline text-4xl font-bold mb-4 text-center">ПОПУЛЯРНО СЕЙЧАС</h2>
+<div class="text-center mb-8">
+<span class="scroll-arrow material-symbols-outlined text-primary-container text-3xl">keyboard_arrow_down</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full h-64 md:h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Counter-Strike 2 game cover art" src="https://www.csgoroll.com/blog/content/images/size/w2000/2025/01/counter-strike-2-pc-game-steam-cover.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-90"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-8">
+<span class="font-label text-xs bg-primary-container text-on-primary px-3 py-1 rounded-full mb-4 inline-block">MOST PLAYED</span>
+<h3 class="font-headline text-2xl md:text-4xl font-bold uppercase">Counter-Strike 2</h3>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full h-48 md:h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="futuristic cyberpunk 2077 city street scene with neon lights and dark rainy atmosphere" src="https://image.api.playstation.com/vulcan/ap/rnd/202311/2812/ae84720b553c4ce943e9c342621b60f198beda0dbf533e21.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6">
+<h3 class="font-headline text-xl md:text-2xl font-bold uppercase">Cyberpunk 2077</h3>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full h-48 md:h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="stylized esports hero character art for Valorant, bright vibrant cyan and magenta colors" src="https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-4 md:p-6">
+<h3 class="font-headline text-xl md:text-2xl font-bold uppercase">Valorant</h3>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Dota 2 strategy game interface and hero battle scene with magical effects" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/570/header.jpg?t=1769535998"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="font-headline text-2xl font-bold uppercase">Dota 2</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 bg-surface-container-lowest" id="tariffs">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-headline text-3xl sm:text-5xl font-bold mb-4">ТАРИФЫ</h2>
+<div class="h-1 w-24 bg-primary-container mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Standard -->
+<div class="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col hover:border-primary/50 transition-all group">
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-2">Standard</h3>
+<div class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-6">150₽ <span class="text-sm sm:text-lg text-outline font-light">/час</span></div>
+<ul class="space-y-3 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            RTX 3060 Ti / Core i5
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            144Hz Мониторы
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            Общий зал
+                        </li>
+</ul>
+<button class="scroll-to-contacts w-full py-3 rounded-lg border border-outline-variant hover:bg-surface-variant transition-colors font-bold hover:gradient-animate">Выбрать</button>
+</div>
+<!-- Pro -->
+<div class="bg-surface-container-high border-2 border-primary-container p-6 rounded-xl flex flex-col relative md:scale-105 shadow-[0_0_40px_rgba(157,0,255,0.2)]">
+<div class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-primary-container text-on-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase">Popular</div>
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-2">Pro</h3>
+<div class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-6">250₽ <span class="text-sm sm:text-lg text-outline font-light">/час</span></div>
+<ul class="space-y-3 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            RTX 4070 / Core i7
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            240Hz Мониторы
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Pro-зоны
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            Девайсы HyperX/Logitech
+                        </li>
+</ul>
+<button class="scroll-to-contacts w-full py-3 rounded-lg border border-outline-variant hover:bg-surface-variant transition-colors font-bold hover:gradient-animate">Выбрать</button>
+</div>
+<!-- VIP -->
+<div class="bg-surface-container-low border border-outline-variant/20 p-6 rounded-xl flex flex-col hover:border-secondary-container/50 transition-all group">
+<h3 class="font-headline text-xl sm:text-2xl font-bold mb-2 text-secondary-container">VIP</h3>
+<div class="text-3xl sm:text-4xl font-headline font-bold text-on-surface mb-6">500₽ <span class="text-sm sm:text-lg text-outline font-light">/час</span></div>
+<ul class="space-y-3 mb-8 flex-grow">
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            RTX 4090 / Core i9
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            360Hz / 4K Мониторы
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            Приватные комнаты
+                        </li>
+<li class="flex items-center gap-3 text-xs sm:text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary-container text-lg sm:text-xl">check_circle</span>
+                            Напитки включены
+                        </li>
+</ul>
+<button class="scroll-to-contacts w-full py-3 rounded-lg border border-outline-variant hover:bg-surface-variant transition-colors font-bold hover:gradient-animate">Выбрать</button>
+</div>
+</div>
+<div class="mt-12 relative overflow-hidden rounded-xl border border-secondary-container/30 shadow-[0_0_30px_rgba(0,241,253,0.1)]">
+<video class="absolute inset-0 w-full h-full object-cover opacity-40" autoplay muted loop playsinline>
+<source src="video/4K Blue.mp4" type="video/mp4"/>
+</video>
+<div class="relative z-10 p-6 bg-gradient-to-r from-surface-container-low/90 to-surface-container-low/40 backdrop-blur-md flex flex-col md:flex-row justify-between items-center gap-6">
+<div>
+<h4 class="font-headline text-lg sm:text-xl font-bold mb-1 text-secondary-container">НОЧНЫЕ ПАКЕТЫ</h4>
+<p class="text-on-surface-variant text-xs sm:text-sm">Играй с 22:00 до 08:00 по фиксированной цене</p>
+</div>
+<div class="text-2xl sm:text-3xl font-headline font-bold text-secondary-container drop-shadow-[0_0_10px_rgba(0,241,253,0.5)]">ОТ 300₽ / ЧАС</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tournaments -->
+<section class="py-16 md:py-24 bg-surface border-y border-outline-variant/10" id="tournaments">
+<div class="container mx-auto px-6">
+<div class="bg-surface-container-highest rounded-2xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+<div class="relative min-h-[250px] md:min-h-[400px] md:w-1/2">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="CS2 tournament arena with neon lights" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/library_hero.jpg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent to-surface-container-highest md:block hidden"></div>
+</div>
+<div class="p-6 md:p-12 flex flex-col justify-center md:w-1/2">
+<div class="text-secondary-container font-label text-xs sm:text-sm font-bold tracking-[0.3em] uppercase mb-4">Sigma Event</div>
+<h2 class="font-headline text-3xl sm:text-5xl font-bold mb-6 leading-tight">CS 2 <br/> MASTERS</h2>
+<div class="grid grid-cols-2 gap-6 md:gap-8 mb-8">
+<div>
+<p class="text-outline text-xs uppercase tracking-widest mb-1">Призовой фонд</p>
+<p class="text-xl sm:text-2xl font-bold text-primary">100 000 ₽</p>
+</div>
+<div>
+<p class="text-outline text-xs uppercase tracking-widest mb-1">Дата начала</p>
+<p class="text-xl sm:text-2xl font-bold text-on-surface">15.05.35</p>
+</div>
+</div>
+<button class="bg-primary text-on-primary font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-lg hover:bg-primary-container transition-all self-start text-sm sm:text-base">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Gallery -->
+<section class="py-24 bg-surface-container-lowest" id="gallery">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-headline text-3xl sm:text-5xl font-bold mb-4">НАША АТМОСФЕРА</h2>
+<div class="h-1 w-24 bg-primary-container mx-auto"></div>
+</div>
+<div class="columns-1 md:columns-3 gap-6 space-y-6">
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" data-alt="luxury private gaming VIP room called Omega Room with red mood lighting and high-end leather chairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARvXxUMqi_rATwk7OsAVqK_pkwsh4kd9tSo8A7Gn7OZU5E9fjXRFB8GcGc955UVxItGSiUVbauBqOi62-SoBaes9gFKHjkFQtlSbtX9h5QBg_sjdhxMLWKlN2LDWTuLy93kTi85k_vO_c5JTzJT5JrJFYHzu2C4r-6CoyWJR8f2ijIcLkyTZvdzBwwouFGwWSvz7EevNLsHvY3D_nLfz7AzEMRsdbaob_cjRIHTONuxU7DOZ8XVHe4Bb7gdsWGFczVc2lTYm1VF0HC"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-4 left-4 bg-background/80 backdrop-blur-md p-3 rounded-lg border border-outline-variant/30">
+<p class="font-label text-xs font-bold uppercase">VIP комната</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" data-alt="modern gaming cafe main hall with rows of computers and atmospheric blue neon lighting streaks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqfqu7JXfngjMVmlgTcRW68ikj_q0DPSUitJy52GZWjDoSDOVml2S_TNJBsQ8YCVI17z0eqjXS28q_YJ6FonGjWSoa-x3hQRgUbXGqlZEgsmr6KxAqoWyWgUMf7RPSBPaeIV0NJdWKYT7Oz1h-_oMr429T1POSTOPmIM6GAbPKu7Ph50o9HCPQZchv9qHBH2bExOrubRrRh5IppI_QQfOG59fl5tFCUh3aNR4B04gFFwI-2xOQsy7hHkET961WOg3FwIkUMIonv3m7"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-4 left-4 bg-background/80 backdrop-blur-md p-3 rounded-lg border border-outline-variant/30">
+<p class="font-label text-xs font-bold uppercase">Главный зал</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-xl">
+<img class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" data-alt="cozy cafe recharge station area with sleek bar counter and high stools for gamers to rest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1suGfZao1P0xQFNSujZAxyfdDBi5dTLptM0k9WebkcrCLf6J4gfWpDR1iDJuRBTSzyn3nRA4BVC6lui4jaHJuRp9yU7T5ajOTafo_DUpHU5rP9Sx6ZpvfiYzGFJbaij57sHaVo3mLfbImobA4vTFvpPQJspBXDq-ExiY5m6OMjuCz8kwGbpkO5GOBe-P_9KAzzGVDaDa2wcwIoJDY1fU7FLUC1V0MMm128GQ2cm1S-GIKBVqZWBynnNiNxXfDROKhXLlBd_6FBXWo"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute bottom-4 left-4 bg-background/80 backdrop-blur-md p-3 rounded-lg border border-outline-variant/30">
+<p class="font-label text-xs font-bold uppercase">Зал ожидания</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof -->
+<section class="py-24 bg-surface-container-lowest overflow-hidden">
+<div class="container mx-auto px-6">
+<div class="flex gap-8 animate-marquee">
+<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-primary">
+<p class="italic text-on-surface-variant mb-4 font-light">"Лучший клуб в городе. Пинг в CS2 стабильно 5мс. Админы шарят."</p>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" src="https://images.cybersport.ru/images/as-is/plain/3f/3fe8334f-28db-432a-a871-050453bb91f5.png" alt="s1mple avatar"/>
+<div>
+<p class="font-bold text-sm">s1mple</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">PRO PLAYER</p>
+</div>
+</div>
+</div>
+<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-secondary-container">
+<p class="italic text-on-surface-variant mb-4 font-light">"VIP комнаты — это просто космос. Идеально для буткемпа с командой."</p>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" src="https://escorenews.com/media/news/pic-20220121-1080x1080-4417268261.jpeg" alt="cyber_kotleta avatar"/>
+<div>
+<p class="font-bold text-sm">cyber_kotleta</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">PRO PLAYER</p>
+</div>
+</div>
+</div>
+<div class="min-w-[300px] p-6 bg-surface-container-low border-l-2 border-primary">
+<p class="italic text-on-surface-variant mb-4 font-light">"Периферия всегда чистая, железо не греется. Респект за RTX 4090!"</p>
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" src="https://d1pzotwf6uuj6w.cloudfront.net/publications/upload/publication-5284/russed/zeus_norm.png" alt="zeus avatar"/>
+<div>
+<p class="font-bold text-sm">zeus</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">PRO PLAYER</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contacts & Map -->
+<section class="py-24 bg-surface relative" id="contacts">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-12 gap-8">
+<div class="md:col-span-4">
+<h2 class="font-headline text-3xl sm:text-4xl font-bold mb-8">КОНТАКТЫ</h2>
+<ul class="space-y-6">
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<div>
+<p class="text-xs uppercase tracking-widest text-outline mb-1">Адрес</p>
+<p class="font-bold">ул. Киберспортивная, 24</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">call</span>
+<div>
+<p class="text-xs uppercase tracking-widest text-outline mb-1">Телефон</p>
+<p class="font-bold text-lg sm:text-xl text-secondary-container">+7 (999) 000-000</p>
+</div>
+</li>
+<li class="flex gap-4">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<div>
+<p class="text-xs uppercase tracking-widest text-outline mb-1">Режим работы</p>
+<p class="font-bold">24/7 (Круглосуточно)</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="md:col-span-8 h-[300px] sm:h-[400px] rounded-2xl overflow-hidden relative border border-outline-variant/30">
+<div class="absolute inset-0 bg-surface-container-highest flex items-center justify-center">
+<img class="w-full h-full object-cover opacity-60" data-alt="abstract stylized dark map of a city with cyan neon routes and location pin markers" data-location="Moscow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAscMsQCNerFmqw4827G9nIVstnEUHLHWj_HGhobpqLlnZaf8N01Vem8Sr-oUikU8lDGR_ee-N0I8H9a8szgfWIYXNMJUA4ymZqMGrKExqIlvv6iEshS85K-xz4MZgFZuDZ8wPhhW1GDki_e2m8S4mKEWqmmuK--IBb4MPblCSJpxIgsE1b0USkhZHOgJoS8-iK4A_LGIR-9hcEotpjob3TpJUQTm5wCv9YSukvG6gNuw9-POpifEgZHDkEDig1q_sWOzBCb5Hledi8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
+<div class="absolute flex flex-col items-center">
+<span class="material-symbols-outlined text-4xl sm:text-6xl text-primary drop-shadow-[0_0_10px_rgba(223,183,255,1)]" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="bg-background/90 px-3 sm:px-4 py-2 rounded-lg font-bold mt-2 text-sm sm:text-base">SIGMA ARENA ПИВО В ПОДАРОК!</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer Shell -->
+<footer class="bg-[#0e0e0e] w-full py-8 md:py-12 border-t border-[#4e4356]/20 font-['Manrope'] text-xs sm:text-sm uppercase tracking-widest">
+<div class="flex flex-col md:flex-row justify-between items-center px-4 md:px-8 max-w-7xl mx-auto gap-4 md:gap-6">
+<div class="text-lg font-bold text-[#e5e2e1]">СИГМА</div>
+<div class="flex gap-4 md:gap-8 flex-wrap justify-center">
+<a class="text-[#e5e2e1]/50 hover:text-[#9D00FF] transition-colors opacity-80 hover:opacity-100" href="#">VK</a>
+<a class="text-[#e5e2e1]/50 hover:text-[#9D00FF] transition-colors opacity-80 hover:opacity-100" href="#">Telegram</a>
+<a class="text-[#e5e2e1]/50 hover:text-[#9D00FF] transition-colors opacity-80 hover:opacity-100" href="#">YouTube</a>
+<a class="text-[#e5e2e1]/50 hover:text-[#9D00FF] transition-colors opacity-80 hover:opacity-100" href="#">Discord</a>
+</div>
+<div class="text-[#e5e2e1]/50 normal-case tracking-normal text-center md:text-right">
+                © 2024 Компьютерный клуб СИГМА. Все права защищены.
+            </div>
+</div>
+</footer>
+<script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking on a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+        });
+    });
+    
+    // Smooth scroll for buttons
+    document.querySelectorAll('.scroll-to-contacts').forEach(button => {
+        button.addEventListener('click', function() {
+            document.querySelector('#contacts').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        });
+    });
+</script>
+</body></html>
